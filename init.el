@@ -2,8 +2,9 @@
 (add-to-list 'exec-path "/usr/local/bin")
 ;;;Disable the Toolbar
 (tool-bar-mode -1)
-;;;Show the line number
+;;;Show the line number and column number
 (global-linum-mode t)
+(column-number-mode t)
 ;;;Enabled the ido mode
 (ido-mode t)
 ;;; Install the kernel style
@@ -51,7 +52,15 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/git-emacs"))
 (require 'git-emacs)
 
+
+(put 'erase-buffer 'disabled nil)
+
+;;;Load the color theme
+(load-theme 'wombat t)
+
+;;;Display the time
+(display-time)
+
 ;;;Key Bindings
 (global-set-key (kbd "<f2>") 'rename-buffer)
 (global-set-key (kbd "C-c z") 'shell)
-
