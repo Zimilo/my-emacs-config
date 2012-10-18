@@ -1,3 +1,6 @@
 [submodule "git-emacs"]
 	path = git-emacs
 	url = https://github.com/tsgates/git-emacs.git
+[submodule "google-maps"]
+	path = google-maps
+	url = git://git.naquadah.org/google-maps.git

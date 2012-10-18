@@ -61,6 +61,30 @@
 ;;;Display the time
 (display-time)
 
+
+;;; Fullscreen and maximized
+(defun my-fullscreen ()
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
+(defun my-maximized ()
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
+(my-maximized)
+(my-fullscreen)
+
 ;;;Key Bindings
 (global-set-key (kbd "<f2>") 'rename-buffer)
 (global-set-key (kbd "C-c z") 'shell)
+(global-set-key (kbd "<f10>") 'my-fullscreen)
+
+;;;Google Maps
+(add-to-list 'load-path "~/.emacs.d/google-maps")
+(require 'google-maps)
