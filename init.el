@@ -59,8 +59,8 @@
 (load-theme 'wombat t)
 
 ;;;Display the time
+(display-time-mode 1)
 (display-time)
-
 
 ;;; Fullscreen and maximized
 
@@ -91,12 +91,25 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
+
+;;;Set desktop notification
+(defun my-desktop-notify (title message)
+  (start-process "notify-send" "notify-send" "notify-send" title "message"))
+
+;;;Scroll bar
+(scroll-bar-mode 0)
+
+;;;Display the matched the parenthness matched at the pointer
+(show-paren-mode t)
+
 ;;;Key Bindings
 (global-set-key (kbd "<f2>") 'rename-buffer)
 (global-set-key (kbd "C-c z") 'shell)
 (global-set-key (kbd "<f10>") 'my-fullscreen)
 
+;;;Emacs IRC
 (require 'rock-erc)
 
 ;;;LaTex
 (require 'rock-latex)
+
